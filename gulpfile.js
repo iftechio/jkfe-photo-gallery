@@ -4,10 +4,10 @@ const axios = require("axios");
 const gulp = require("gulp");
 const qiniu = require("gulp-qiniu");
 const log = require("fancy-log");
-
+const package = require("./package.json")
 // configs
 const DEPLOY_SOURCE = "dist/**";
-const DEPLOY_OUTPUT = "jkfe-picture-log";
+const DEPLOY_OUTPUT = package.name;
 const UPLOAD_SOURCE = "dist";
 const QINIU_ACCESSKEY = "tYFesWPbj5p3ibOmadXn_p7hnxGkpmTNm_isdTEF";
 const QINIU_SECRETKEY = "DTksh3gqDnR1phADCUp8jsZw0QLAiujZFDX04rw1";
@@ -33,7 +33,10 @@ gulp.task("cdn", () =>
 
 gulp.task("upload", () => {
   const files = {};
-  const config = JSON.parse(fs.readFileSync("./app.json", "utf-8"));
+  const config = {
+    "name": package.name,
+    "group": "hybrid"
+  }
   const branch = shell.exec("git rev-parse --abbrev-ref HEAD");
   const hash = shell.exec("git rev-parse --short HEAD");
   if (branch.code !== 0 || hash.code !== 0) {
