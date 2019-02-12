@@ -9,18 +9,39 @@
   },
   "dependencies": {
     "vue": "^2.5.22",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "@ruguoapp/jike-auth-axios": "0.0.2",
+    "@ruguoapp/jike-js-sdk": "0.0.22",
+    "@ruguoapp/jk-analytics": "0.3.1",
+    "mint-ui": "^2.2.13",
+    "@ruguoapp/vue-jike-navigation": "^0.3.1",
+    "await-to-js": "^2.1.1",
+    "axios": "^0.18.0"
   },
   "devDependencies": {
+    "shelljs": "^0.8.3",
+    "gulp": "^3.9.1",
+    "gulp-qiniu": "^0.2.4",
     "@vue/cli-plugin-babel": "^3.1.0",
     "@vue/cli-plugin-eslint": "^3.1.0",
     "@vue/cli-service": "^3.1.0",
     "@vue/eslint-config-airbnb": "^4.0.0",
     "babel-eslint": "^10.0.1",
+    "lint-staged": "^8.1.0",
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
     "vue-template-compiler": "^2.5.21"
+  },
+  "lint-staged": {
+    "*.js": [
+      "vue-cli-service lint",
+      "git add"
+    ],
+    "*.vue": [
+      "vue-cli-service lint",
+      "git add"
+    ]
   }
 }
