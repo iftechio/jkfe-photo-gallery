@@ -1,4 +1,10 @@
 # hybrid example
+增加了
+[px2viewport 插件](https://github.com/yuanzhaohao/postcss-px2viewport#readme)
+移动端等比例缩放能解决大部分适配的问题
+
+[babel-plugin-component](https://github.com/ElementUI/babel-plugin-component#readme)
+mint-ui 推荐的
 
 ## Project setup
 ```
