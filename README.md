@@ -1,4 +1,4 @@
-# sand-world
+# hybrid example
 
 ## Project setup
 ```

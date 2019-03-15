@@ -9,7 +9,7 @@ import router from './router'
 
 JKA.setCurrentPage('picture-log')
 Vue.use(JikeNavigation, { router, scroll: true })
-JKA.prototype.$event = params => JKA.event(params)
+Vue.prototype.$event = params => JKA.event(params)
 Vue.config.productionTip = false
 
 function init () {
