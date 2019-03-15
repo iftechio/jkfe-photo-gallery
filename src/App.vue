@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <jike-container/>
+    <jike-container />
   </div>
 </template>
 <style lang="stylus">
