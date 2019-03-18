@@ -3,11 +3,16 @@ import { JK } from '@ruguoapp/jike-js-sdk'
 import { JKA } from '@ruguoapp/jk-analytics'
 import { JikeNavigation } from '@ruguoapp/vue-jike-navigation'
 import { wrapAuth, refreshAuthToken } from '@ruguoapp/jike-auth-axios'
+import * as Sentry from '@sentry/browser'
 import axios from 'axios'
 import App from './App.vue'
 import router from './router'
 
-JKA.setCurrentPage('picture-log')
+Sentry.init({
+  dsn: '__DSN__',
+  // ...
+})
+JKA.setCurrentPage('hybrid-template')
 Vue.use(JikeNavigation, { router, scroll: true })
 Vue.prototype.$event = params => JKA.event(params)
 Vue.config.productionTip = false

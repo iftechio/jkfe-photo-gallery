@@ -10,15 +10,16 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "vue": "^2.6.9",
-    "vue-router": "^3.0.2",
     "@ruguoapp/jike-auth-axios": "0.0.4",
     "@ruguoapp/jike-js-sdk": "0.0.30",
     "@ruguoapp/jk-analytics": "0.3.1",
-    "mint-ui": "^2.2.13",
     "@ruguoapp/vue-jike-navigation": "^0.3.1",
+    "@sentry/browser": "^4.6.4",
     "await-to-js": "^2.1.1",
-    "axios": "^0.18.0"
+    "axios": "^0.18.0",
+    "mint-ui": "^2.2.13",
+    "vue": "^2.6.9",
+    "vue-router": "^3.0.2"
   },
   "devDependencies": {
     "@ruguoapp/jike-fe-upload": "0.0.15",
