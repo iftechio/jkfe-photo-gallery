@@ -5,12 +5,13 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "deploy": "jkupload -s dist -p hybrid-template && gulp upload",
+    "deploy": "jkupload -s dist -p hybrid-template && jkfedpy upload dist",
     "publish": "npm run build && npm run deploy",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "@ruguoapp/jike-auth-axios": "0.0.4",
+    "@ruguoapp/jike-fe-dpy": "0.0.4",
     "@ruguoapp/jike-js-sdk": "0.0.30",
     "@ruguoapp/jk-analytics": "0.3.1",
     "@ruguoapp/vue-jike-navigation": "^0.3.1",
