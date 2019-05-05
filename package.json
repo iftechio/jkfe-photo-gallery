@@ -1,11 +1,11 @@
 {
-  "name": "hybrid-template",
+  "name": "jkfe-photo-gallery",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "deploy": "jkupload -s dist -p hybrid-template && jkfedpy upload dist",
+    "deploy": "jkupload -s dist -p jkfe-photo-gallery && jkfedpy upload dist",
     "publish": "npm run build && npm run deploy",
     "lint": "vue-cli-service lint"
   },
