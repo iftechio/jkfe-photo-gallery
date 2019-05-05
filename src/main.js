@@ -13,7 +13,7 @@ import router from './router'
 //   // ...
 // })
 JKA.setCurrentPage('jkfe-photo-gallery')
-Vue.use(JikeNavigation, { router, scroll: true })
+Vue.use(JikeNavigation, { router, scroll: false })
 Vue.prototype.$event = params => JKA.event(params)
 Vue.config.productionTip = false
 
@@ -34,8 +34,7 @@ if (JK.isInJikeApp() && JK.compareVersion('4.2.1') >= 0) {
       {
         displayHeader: 'false',
         displayFooter: 'false',
-        enableBounce: 'false',
-        disablePanBack: 'true',
+        // enableBounce: 'false',
       },
       true,
     )
