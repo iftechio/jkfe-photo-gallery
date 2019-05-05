@@ -1,14 +1,19 @@
 <template>
-  <jike-page title="日出日落现场直播">
-    <div class="photo-gallery">
-      <div
-        v-for="item in list"
-        :key="item.id"
-        class="photo-item"
-        :class="{ multiple: isMultiple(item) }"
-        :style="{backgroundImage: `url(${getFirstImage(item)})`, ...photoItemStyle }"
-        @click="handleGotoOriginalPost(item)"
-      />
+  <jike-page
+    :title="title"
+    class="page"
+  >
+    <div class="gallery-wrap">
+      <div class="photo-gallery">
+        <div
+          v-for="item in list"
+          :key="item.id"
+          class="photo-item"
+          :class="{ multiple: isMultiple(item) }"
+          :style="{backgroundImage: `url(${getFirstImage(item)})`, ...photoItemStyle }"
+          @click="handleGotoOriginalPost(item)"
+        />
+      </div>
     </div>
     <infinite-loading
       class="loading"
@@ -17,16 +22,24 @@
   </jike-page>
 </template>
 <style lang="stylus" scoped>
+.page
+  width 100vw
+  // overflow-x hidden
+.gallery-wrap
+  width 100vw
+  overflow-x hidden
 .photo-gallery
   display flex
   flex-flow row wrap
-  justify-content space-between
+  width calc(100vw + 4px)
+  // justify-content space-between
   .photo-item
     flex 0 0 auto
     height 80px
     background-color #eee
     background-size cover
     margin-bottom 2px
+    margin-right 2px
     position relative
     &.multiple
       &:after
@@ -67,9 +80,12 @@ export default {
         height: this.imageWidth + 'px',
       }
     },
-  },
-  mounted () {
-
+    title () {
+      if (this.list.length > 0) {
+        return this.list[0].topic.content
+      }
+      return ''
+    },
   },
   methods: {
     async handleInfinite ($state) {
