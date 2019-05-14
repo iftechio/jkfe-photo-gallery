@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@ruguoapp/jike-auth-axios": "0.0.4",
-    "@ruguoapp/jike-fe-dpy": "0.0.4",
+    "@ruguoapp/jike-fe-dpy": "0.0.7",
     "@ruguoapp/jike-js-sdk": "0.0.30",
     "@ruguoapp/jk-analytics": "0.3.1",
     "@ruguoapp/vue-jike-navigation": "^0.3.1",

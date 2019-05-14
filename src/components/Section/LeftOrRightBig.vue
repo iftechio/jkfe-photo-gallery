@@ -64,7 +64,7 @@ export default {
   computed: {
     firstPicStyle () {
       return {
-        backgroundImage: `url(${this.pictures[0].thumbnailUrl})`,
+        backgroundImage: `url(${this.pictures[0].middlePicUrl})`,
         width: this.cellWidth * 2 + 2 + 'px',
         height: this.cellWidth * 2 + 2 + 'px',
       }
