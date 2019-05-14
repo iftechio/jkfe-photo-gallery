@@ -93,10 +93,13 @@ export const gallery = new Vue({
         slice(messages, 6),
       ]
     },
-    /** 找到最合适比例的图片 */
+    /** 找到最合适比例的图片 展示是否多张图 */
     findPictureByRatio (pictures, ratio = 1) {
       const perfectPic = minBy(pictures, (picture) => picture.ratio - ratio)
-      return perfectPic
+      return {
+        ...perfectPic,
+        multiple: pictures.length > 1,
+      }
     },
     /** 找到当前应该的排版类型 */
     findCurrentType () {

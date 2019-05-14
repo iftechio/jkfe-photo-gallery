@@ -4,6 +4,7 @@
       v-for="picture in pictures"
       :key="picture.thumbnailUrl"
       class="pic"
+      :class="{ multiple: picture.multiple }"
       :style="{ backgroundImage: `url(${picture.thumbnailUrl})`, ...picStyle }"
     />
   </div>
@@ -18,6 +19,18 @@
     background-size cover
     margin-bottom 2px
     margin-right 2px
+    &.multiple
+      position relative
+      &:after
+        position absolute
+        right 10px
+        top 10px
+        content ''
+        display block
+        width 15px
+        height 15px
+        background url('https://cdn.ruguoapp.com/FqqTOzkKWKTUGlw3nrHUiPw1DxIn.png') no-repeat
+        background-size cover
 </style>
 <script>
 export default {

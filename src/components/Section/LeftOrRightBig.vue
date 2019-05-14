@@ -5,6 +5,7 @@
   >
     <div
       class="big-pic"
+      :class="multipleClass(0)"
       :style="firstPicStyle"
       @click="handleClick(0)"
     />
@@ -12,11 +13,13 @@
       <div
         class="small-pic"
         :style="secondPicStyle"
+        :class="multipleClass(1)"
         @click="handleClick(1)"
       />
       <div
         class="small-pic"
         :style="thirdPicStyle"
+        :class="multipleClass(2)"
         @click="handleClick(2)"
       />
     </div>
@@ -34,6 +37,18 @@
     background-size cover
     margin-bottom 2px
     margin-right 2px
+    &.multiple
+      position relative
+      &:after
+        position absolute
+        right 10px
+        top 10px
+        content ''
+        display block
+        width 15px
+        height 15px
+        background url('https://cdn.ruguoapp.com/FqqTOzkKWKTUGlw3nrHUiPw1DxIn.png') no-repeat
+        background-size cover
   .small-wrap
     display flex
     flex-flow column
@@ -68,10 +83,16 @@ export default {
         height: this.cellWidth + 'px',
       }
     },
+
   },
   methods: {
     handleClick (index) {
       location.href = `jike://page.jk/originalPost/${this.pictures[index].id}`
+    },
+    multipleClass (index) {
+      return {
+        multiple: this.pictures[index].multiple,
+      }
     },
   },
 }
