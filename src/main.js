@@ -39,6 +39,7 @@ if (JK.isInJikeApp() && JK.compareVersion('4.2.1') >= 0) {
       true,
     )
     refreshAuthToken().then(() => init())
+    JK.toast('你好呀')
   })
 } else {
   init()
