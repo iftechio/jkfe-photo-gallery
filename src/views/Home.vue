@@ -1,14 +1,11 @@
 <template>
-  <jike-page
-    :title="title"
-    class="page"
-    :style="{ 'border-bottom-width': '0px!important' }"
-  >
+  <div>
     <RecycleScroller
       class="photo-gallery"
       :items="list"
       :buffer="200"
       :item-size="getSectionHeight()"
+      :page-mode="true"
       key-field="id"
     >
       <template v-slot="{ item }">
@@ -27,19 +24,14 @@
         />
       </template>
     </RecycleScroller>
-  </jike-page>
+  </div>
 </template>
 <style lang="stylus" scoped>
 .page
   width 100vw
-  height 100vh
   display flex
-  flex-flow column
   overflow-y hidden
-  .photo-gallery
-    flex 1
-    -webkit-overflow-scrolling touch
-
+  flex-flow column
 </style>
 
 <script>
