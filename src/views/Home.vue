@@ -20,6 +20,7 @@
       <template v-slot:after>
         <infinite-loading
           :distance="500"
+          spinner="circles"
           class="loading"
           @infinite="handleInfinite"
         />
