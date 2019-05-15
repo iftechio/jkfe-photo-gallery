@@ -3,7 +3,7 @@
     <RecycleScroller
       class="photo-gallery"
       :items="list"
-      :buffer="200"
+      :buffer="3000"
       :item-size="getSectionHeight()"
       :page-mode="true"
       key-field="id"
@@ -19,6 +19,7 @@
       </template>
       <template v-slot:after>
         <infinite-loading
+          :distance="500"
           class="loading"
           @infinite="handleInfinite"
         />

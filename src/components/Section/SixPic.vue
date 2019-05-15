@@ -18,6 +18,7 @@
   .pic
     background-color #eeeeee
     background-size cover
+    background-position  center center
     margin-bottom 2px
     margin-right 2px
     &.multiple

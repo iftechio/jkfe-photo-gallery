@@ -123,7 +123,7 @@ export const gallery = new Vue({
       )
       this.compositePicture()
       this.loadMoreKey = res.loadMoreKey
-      if (res.data.length > 0) {
+      if (res.data.length > 0 && res.loadMoreKey) {
         $state.loaded()
       } else {
         $state.complete()

@@ -35,6 +35,7 @@
   .big-pic, .small-pic
     background-color #eee
     background-size cover
+    background-position center center
     margin-bottom 2px
     margin-right 2px
     &.multiple
