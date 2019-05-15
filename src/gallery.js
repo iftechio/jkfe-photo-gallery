@@ -117,6 +117,7 @@ export const gallery = new Vue({
       })
       this.rawMessages.push(...res.data
         .map(originalPost => this.transformOriginalPost(originalPost))
+        .filter(originalPost => originalPost)
         .filter(originalPost => originalPost.pictures && originalPost.pictures.length > 0)
         .map(originalPost => this.transformPictures(originalPost))
       )
