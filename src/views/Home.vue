@@ -3,41 +3,41 @@
     :title="title"
     class="page"
   >
-    <div class="gallery-wrap">
-      <div class="photo-gallery">
-        <template
-          v-for="item in list"
-        >
-          <SixPicSection
-            v-if="item.type === 'sixPic'"
-            :key="item.pictures[0].id"
-            :pictures="item.pictures"
-            :type="item.type"
-            :cell-width="imageWidth"
-          />
-          <LeftOrRightBigSection
-            v-if="item.type === 'leftBig' || item.type === 'rightBig'"
-            :key="item.pictures[0].id"
-            :pictures="item.pictures"
-            :type="item.type"
-            :cell-width="imageWidth"
-          />
-        </template>
-      </div>
-    </div>
-    <infinite-loading
-      class="loading"
-      @infinite="handleInfinite"
-    />
+    <RecycleScroller
+      class="photo-gallery"
+      :items="list"
+      :buffer="200"
+      :item-size="getSectionHeight()"
+      key-field="id"
+    >
+      <template v-slot="{ item }">
+        <component
+          :is="componentMap[item.type]"
+          :key="item.pictures[0].id"
+          :pictures="item.pictures"
+          :type="item.type"
+          :cell-width="imageWidth"
+        />
+      </template>
+      <template v-slot:after>
+        <infinite-loading
+          class="loading"
+          @infinite="handleInfinite"
+        />
+      </template>
+    </RecycleScroller>
   </jike-page>
 </template>
 <style lang="stylus" scoped>
 .page
   width 100vw
+  height 100vh
+  display flex
+  flex-flow column
   overflow-y hidden
-.gallery-wrap
-  width 100vw
-  overflow-x hidden
+  .photo-gallery
+    flex 1
+
 </style>
 
 <script>
@@ -62,6 +62,11 @@ export default {
       topic: params.topic,
       imageWidth: (window.innerWidth - 2 * 2) / 3,
       title: '',
+      componentMap: {
+        leftBig: 'LeftOrRightBigSection',
+        rightBig: 'LeftOrRightBigSection',
+        sixPic: 'SixPicSection',
+      },
     }
   },
   mounted () {
@@ -72,6 +77,9 @@ export default {
   methods: {
     handleInfinite ($state) {
       gallery.fetchOriginalPost($state)
+    },
+    getSectionHeight () {
+      return this.imageWidth * 2 + 2 * 2
     },
   },
 }

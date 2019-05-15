@@ -72,6 +72,7 @@ export const gallery = new Vue({
         {
           type: side,
           pictures: result,
+          id: result[0].thumbnailUrl,
         },
         slice(messages, 3),
       ]
@@ -89,6 +90,7 @@ export const gallery = new Vue({
         {
           type: 'sixPic',
           pictures: result,
+          id: result[0].thumbnailUrl,
         },
         slice(messages, 6),
       ]
