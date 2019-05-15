@@ -6,6 +6,7 @@
       class="pic"
       :class="{ multiple: picture.multiple }"
       :style="{ backgroundImage: `url(${picture.thumbnailUrl})`, ...picStyle }"
+      @click="handleClick(picture)"
     />
   </div>
 </template>
@@ -45,6 +46,11 @@ export default {
         width: this.cellWidth + 'px',
         height: this.cellWidth + 'px',
       }
+    },
+  },
+  methods: {
+    handleClick (picture) {
+      location.href = `jike://page.jk/originalPost/${picture.id}`
     },
   },
 }
