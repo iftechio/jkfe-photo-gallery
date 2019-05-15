@@ -2,6 +2,7 @@
   <jike-page
     :title="title"
     class="page"
+    :style="{ 'border-bottom-width': '0px!important' }"
   >
     <RecycleScroller
       class="photo-gallery"
@@ -37,6 +38,7 @@
   overflow-y hidden
   .photo-gallery
     flex 1
+    -webkit-overflow-scrolling touch
 
 </style>
 
