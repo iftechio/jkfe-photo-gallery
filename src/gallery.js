@@ -97,7 +97,7 @@ export const gallery = new Vue({
     },
     /** 找到最合适比例的图片 展示是否多张图 */
     findPictureByRatio (pictures, ratio = 1) {
-      const perfectPic = minBy(pictures, (picture) => picture.ratio - ratio)
+      const perfectPic = minBy(pictures, (picture) => Math.abs(picture.ratio - ratio))
       return {
         ...perfectPic,
         multiple: pictures.length > 1,

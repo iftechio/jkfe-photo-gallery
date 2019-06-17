@@ -8,7 +8,9 @@
   padding 0
   margin 0
   box-sizing border-box
-
+body
+  width 100vw
+  overflow-x hidden
 #app
   font-family 'Avenir', Helvetica, Arial, sans-serif
   -webkit-font-smoothing antialiased

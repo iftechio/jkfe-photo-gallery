@@ -56,6 +56,7 @@
 
 </style>
 <script>
+import { name } from '@/constants'
 export default {
   props: {
     type: String,
@@ -88,7 +89,7 @@ export default {
   },
   methods: {
     handleClick (index) {
-      location.href = `jike://page.jk/originalPost/${this.pictures[index].id}`
+      location.href = `jike://page.jk/originalPost/${this.pictures[index].id}?userRef=${name}`
     },
     multipleClass (index) {
       return {

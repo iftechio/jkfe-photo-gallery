@@ -35,6 +35,7 @@
         background-size cover
 </style>
 <script>
+import { name } from '@/constants'
 export default {
   props: {
     type: String,
@@ -51,7 +52,7 @@ export default {
   },
   methods: {
     handleClick (picture) {
-      location.href = `jike://page.jk/originalPost/${picture.id}`
+      location.href = `jike://page.jk/originalPost/${picture.id}?userRef=${name}`
     },
   },
 }
