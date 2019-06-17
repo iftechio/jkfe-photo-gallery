@@ -1,6 +1,6 @@
 import Vue from 'vue'
-import VueVirtualScroller from 'vue-virtual-scroller'
-import 'vue-virtual-scroller/dist/vue-virtual-scroller.css'
+// import VueVirtualScroller from 'vue-virtual-scroller'
+// import 'vue-virtual-scroller/dist/vue-virtual-scroller.css'
 
 import { JK } from '@ruguoapp/jike-js-sdk'
 import { JKA } from '@ruguoapp/jk-analytics'
@@ -15,7 +15,7 @@ import router from './router'
 //   dsn: '__DSN__',
 //   // ...
 // })
-Vue.use(VueVirtualScroller)
+// Vue.use(VueVirtualScroller)
 JKA.setCurrentPage('jkfe-photo-gallery')
 Vue.use(JikeNavigation, { router, scroll: false })
 Vue.prototype.$event = params => JKA.event(params)

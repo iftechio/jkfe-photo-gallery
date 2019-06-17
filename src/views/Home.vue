@@ -1,31 +1,19 @@
 <template>
   <div>
-    <RecycleScroller
-      class="photo-gallery"
-      :items="list"
-      :buffer="3000"
-      :item-size="getSectionHeight()"
-      :page-mode="true"
-      key-field="id"
-    >
-      <template v-slot="{ item }">
-        <component
-          :is="componentMap[item.type]"
-          :key="item.pictures[0].id"
-          :pictures="item.pictures"
-          :type="item.type"
-          :cell-width="imageWidth"
-        />
-      </template>
-      <template v-slot:after>
-        <infinite-loading
-          :distance="500"
-          spinner="circles"
-          class="loading"
-          @infinite="handleInfinite"
-        />
-      </template>
-    </RecycleScroller>
+    <component
+      :is="componentMap[item.type]"
+      v-for="item in list"
+      :key="item.pictures[0].id"
+      :pictures="item.pictures"
+      :type="item.type"
+      :cell-width="imageWidth"
+    />
+    <infinite-loading
+      :distance="500"
+      spinner="circles"
+      class="loading"
+      @infinite="handleInfinite"
+    />
   </div>
 </template>
 <style lang="stylus" scoped>
