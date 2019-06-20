@@ -89,6 +89,10 @@ export default {
   },
   methods: {
     handleClick (index) {
+      this.$event({
+        action: 'click_photo',
+        extra_id: this.pictures[index].id,
+      })
       location.href = `jike://page.jk/originalPost/${this.pictures[index].id}?userRef=${name}`
     },
     multipleClass (index) {

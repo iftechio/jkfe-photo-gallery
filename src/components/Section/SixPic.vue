@@ -52,6 +52,10 @@ export default {
   },
   methods: {
     handleClick (picture) {
+      this.$event({
+        action: 'click_photo',
+        extra_id: picture.id,
+      })
       location.href = `jike://page.jk/originalPost/${picture.id}?userRef=${name}`
     },
   },

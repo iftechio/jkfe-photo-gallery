@@ -1,13 +1,11 @@
 import Vue from 'vue'
-// import VueVirtualScroller from 'vue-virtual-scroller'
-// import 'vue-virtual-scroller/dist/vue-virtual-scroller.css'
-
 import { JK } from '@ruguoapp/jike-js-sdk'
 import { JKA } from '@ruguoapp/jk-analytics'
 import { JikeNavigation } from '@ruguoapp/vue-jike-navigation'
 import { wrapAuth, refreshAuthToken } from '@ruguoapp/jike-auth-axios'
 // import * as Sentry from '@sentry/browser'
 import axios from 'axios'
+import qs from 'qs'
 import App from './App.vue'
 import router from './router'
 
@@ -15,8 +13,9 @@ import router from './router'
 //   dsn: '__DSN__',
 //   // ...
 // })
-// Vue.use(VueVirtualScroller)
-JKA.setCurrentPage('jkfe-photo-gallery')
+const params = qs.parse(location.search, { ignoreQueryPrefix: true })
+JKA.setCurrentPage('photo_wall')
+JKA.registerProperty('topic_id', params.topic)
 Vue.use(JikeNavigation, { router, scroll: false })
 Vue.prototype.$event = params => JKA.event(params)
 Vue.config.productionTip = false
@@ -27,7 +26,7 @@ function init () {
     el: '#app',
     router,
     components: { App },
-    template: '<App/>',
+    render: (h) => <App/>,
   })
 }
 

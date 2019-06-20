@@ -3,7 +3,6 @@ const px2viewport = require('postcss-px-to-viewport')
 
 module.exports = {
   lintOnSave: false,
-  runtimeCompiler: true,
   crossorigin: 'anonymous',
   css: {
     loaderOptions: {
