@@ -17,7 +17,7 @@
     "@ruguoapp/vue-jike-navigation": "^0.3.1",
     "@sentry/browser": "^4.6.4",
     "await-to-js": "^2.1.1",
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "lodash": "^4.17.11",
     "mint-ui": "^2.2.13",
     "vue": "^2.6.9",
